@@ -1,52 +1,66 @@
 package com.java.oop;
 
 public class Main {
+
     public static void main(String[] args) {
-        //Product object
-        Product product;//no object exists product is just a reference variable
-        product= new Product(1,"samsung",120000,10.0F,4.5F,true); //new constructor()
-        //initialize
-        product.id=1;
-        product.name="samsung";
-        product.discountPercentage=10.0F;
-        product.maxRetailPrice=120000;
-        product.rating=4.5F;
-        product.isAvailable=true;
+        Product product1; //reference variable
+        Product product2;
+        product1 = new Product();
+        product2 = new Product();
+        new Product();
+        new Product();
+        /*int no ;
+        System.out.println(no); local variable */
+        product1.id = 11241;
+        product1.name = "Lenovo Laptop";
+        product1.discountPercentage = 5.5F;
+        product1.maxRetailPrice = 234232;
 
-        System.out.println("Id : "+product.id);
-        System.out.println("Name : "+product.name);
-        System.out.println("MRP : "+product.maxRetailPrice);
-        System.out.println("Discount : "+product.discountPercentage);
-        System.out.println("Rating : "+product.rating);
-        System.out.println("Available : "+product.isAvailable);
+        product2.id = 23423;
+        product2.name = "Samsung mobile phone";
+        product2.maxRetailPrice = 45654;
+        product2.discountPercentage = 6.5F;
+        System.out.println("Product Name : " + product1.name);
+        System.out.println("Product Name : " + product2.name);
 
-        Product product2=new Product(2,"oppo",20000,10.0F,4.5F,false);
-        System.out.println("Id : "+product2.id);
-        System.out.println("Name : "+product2.name);
-        System.out.println("MRP : "+product2.maxRetailPrice);
-        System.out.println("Discount : "+product2.discountPercentage);
-        System.out.println("Rating : "+product2.rating);
-        System.out.println("Available : "+product2.isAvailable);
+        Product product3;
+        product3 = new Product(23423, "Iphone", 23423.234F, 7.5F, 2.5F,2.5F);
 
-
-        Customer customer;
-        customer= new Customer(1,"Laxman",21,"laxmanreddy4728@gmail.com",'M',"7993481960");
-        System.out.println("Id : "+customer.id);
-        System.out.println("Name : "+customer.name);
-        System.out.println("Age : "+customer.age);
-        System.out.println("e-mail : "+customer.email);
-        System.out.println("Gender : "+customer.gender);
-        System.out.println("phno : "+customer.phno);
-
-        Customer customer2;
-        customer2= new Customer(2,"vishnu",21,"vishnu28@gmail.com",'M',"9652083960");
-        System.out.println("Id : "+customer2.id);
-        System.out.println("Name : "+customer2.name);
-        System.out.println("Age : "+customer2.age);
-        System.out.println("e-mail : "+customer2.email);
-        System.out.println("Gender : "+customer2.gender);
-        System.out.println("phno : "+customer2.phno);
+        System.out.printf("Product ID        : %05d%n", product1.id);
+        System.out.printf("Product Name      : %-20s%n", product1.name);
+        System.out.printf("MRP               : ₹%8.2f%n", product1.maxRetailPrice);
+        System.out.printf("Discount          : %-5.2f%%%n", product1.discountPercentage);
+        System.out.printf("Central Tax (CGST): %-5.2f%%%n", product1.centralTax);
 
 
+
+        //Printing in table format
+
+        System.out.printf(
+                "%-5s %-20s %-15s %-12s %-10s%n",
+                "ID", "NAME", "MRP", "DISCOUNT", "CGST"
+        );
+
+        System.out.println("-------------------------------------------------------------");
+
+        System.out.printf(
+                "%-5d %-20s ₹%-15.2f %-4.2f%%       %-4.2f%%%n",
+                product1.id, product1.name, product1.maxRetailPrice, product1.discountPercentage, product1.centralTax
+        );
+
+        System.out.printf(
+                "%-5d %-20s ₹%-15.2f %-4.2f%%       %-4.2f%%%n",
+                product2.id, product2.name, product2.maxRetailPrice, product2.discountPercentage, product1.centralTax
+        );
+
+        float discount = product3.calculateDiscount();
+        System.out.println("Discount : " + discount);
+
+        product3.displayProduct();
+        /*System.out.println("Discount Amount : " + product3.calculateDiscount());
+        System.out.println("Price After Discount : " + product3.priceAfterDiscount());
+        System.out.println("State Tax: " + product3.calculateStateTax());
+        System.out.println("Central Tax: " + product3.calculateCentralTax());
+        System.out.println("Final Bill : " + product3.calculateFinalPrice());*/
     }
 }
